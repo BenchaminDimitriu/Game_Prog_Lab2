@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapCollision : MonoBehaviour
 {
-    // RigidBody m_rigidbody;
+    public Rigidbody m_Rigidbody;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +17,8 @@ public class TrapCollision : MonoBehaviour
         
     }
     void OnCollisionEnter(Collision col){
-        // if(col.tag=="Player"){
-        //         m_rigidbody =  col.gameObject.GetComponent<RigidBody>();
-        //        -col.contacts[0].normal; 
+        m_Rigidbody = col.gameObject.GetComponent<Rigidbody>();
+        m_Rigidbody.AddForce(-col.contacts[0].normal*500); 
         }
-    //  m_rigidbody =  col.gameObject.GetComponent<RigidBody>();
-    // -col.contacts[0].normal;
-    }
+
     }
